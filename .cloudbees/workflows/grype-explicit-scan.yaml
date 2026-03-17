@@ -7,8 +7,8 @@ on:
   push:
     branches: 
       - 'main'
-  schedule:
-    - cron: 50 20 * * 1-5
+  # schedule:
+  #   - cron: 50 20 * * 1-5
 permissions:
   scm-token-own: read
   scm-token-org: read
@@ -19,8 +19,7 @@ jobs:
     steps:      
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
-
       - name: Scan with Grype
-        uses: cloudbees-io/grype-plugin@v1
+        uses: cloudbees-io/grype-plugin@CBP-35850
         with:
           binary-tar-path: ./node18.tar
